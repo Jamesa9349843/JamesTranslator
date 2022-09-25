@@ -12,9 +12,9 @@ from googletrans import Translator
 
 Telegram = Client(
     "Translator Bot",
-    bot_token = os.environ["BOT_TOKEN"],
-    api_id = int(os.environ["API_ID"]),
-    api_hash = os.environ["API_HASH"]
+    bot_token = "5402899694:AAGPmNaXwfsDOa9Y1pmn9xZmbuuPoPtHY7M",
+    api_id = 13135751,
+    api_hash= "37ec0027ea27ca00999f2f49b8010e08"
 )
 
 START_TEXT = """
