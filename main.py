@@ -18,40 +18,33 @@ Telegram = Client(
 )
 
 START_TEXT = """
-Hello {},
+Hello {username},
 
-`Iam a Simple Google Translater Bot. Send Me Any Text & Select Desired Language`
+`I am Blinks Translater Bot. Send Me Any Text & Select Desired Language`
 
-**Made With ❤ By @BX_Botz**
+**Made With ❤ By @itzz_james**
 """
 HELP_TEXT = """
-✪ `Just send a text with language code`
+▷ `Just send a text with language code`
 
-✪ `And select a language for translating`
-
-© [ʙx ʙᴏᴛᴢ](https://t.me/BX_Botz) 
+▷▷ `And select a language for translating` 
 """
 ABOUT_TEXT = """
-🤖 **Bot** : **Gᴏᴏɢʟᴇ Tʀᴀɴsʟᴀᴛᴏʀ**
+▷ **Bot** : **Bʟɪɴᴋs Tʀᴀɴsʟᴀᴛᴏʀ**
 
-👨‍💻 **Dᴇᴠᴇʟᴏᴘᴇʀ** : [ᴍᴜꜰᴀᴢ 🇮🇳](https://telegram.me/Mufaz123)
+▷ **Gʀᴏᴜᴘ** : **Jᴏɪɴ : @blackpinkofficial_groupchat**
 
-📣 **Cʜᴀɴɴᴇʟ** : [BX Bᴏᴛᴢ](https://t.me/BX_Botz)
+▷ **Dᴇᴠᴇʟᴏᴘᴇʀ** : [Jᴀᴍᴇs](https://telegram.me/itzz_james)
 
-👥 **Gʀᴏᴜᴘ** : [ʙx sᴜᴘᴘᴏʀᴛ](https://t.me/BxSupport)
+▷ **Lᴀɴɢᴜᴀɢᴇ** : [Pʏᴛʜᴏɴ𝟹](https://python.org/)
 
-🌐 **Sᴏᴜʀᴄᴇ** : [Cʟɪᴄᴋ ʜᴇʀᴇ](https://t.me/nokiyirunnoippokitum)
+▷ **Lɪʙʀᴀʀʏ** : [Pʏʀᴏɢʀᴀᴍ](https://pyrogram.org/)
 
-🎧 **Lᴀɴɢᴜᴀɢᴇ** : [Pʏᴛʜᴏɴ𝟹](https://python.org/)
-
-📚 **Lɪʙʀᴀʀʏ** : [Pʏʀᴏɢʀᴀᴍ](https://pyrogram.org/)
-
-📡 **Sᴇʀᴠᴇʀ** : [Hᴇʀᴏᴋᴜ](https://heroku.com/)
+▷ **Sᴇʀᴠᴇʀ** : [Hᴇʀᴏᴋᴜ](https://heroku.com/)
 """
 START_BUTTONS = InlineKeyboardMarkup(
-        [[
-        InlineKeyboardButton('🤖 Update Channel', url='https://telegram.me/BX_Botz'),
-        InlineKeyboardButton('🎨 Support Group', url='https://telegram.me/BXSUPPORT')
+        [[     
+        InlineKeyboardButton('🎨 Join Group', url='https://telegram.me/blackpinkofficial_groupchat')
         ],[
         InlineKeyboardButton('🛠️ Help', callback_data='help'),
         InlineKeyboardButton('🔮 About', callback_data='about')
@@ -78,7 +71,7 @@ CLOSE_BUTTON = InlineKeyboardMarkup(
     )
 TRANSLATE_BUTTON = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('♻️ Join Updates Channel ♻️', url='https://telegram.me/BX_Botz')
+        InlineKeyboardButton('♻️ Join Group ♻️', url='https://telegram.me/blackpinkofficial_groupchat')
         ]]
     )
 LANGUAGE_BUTTONS = InlineKeyboardMarkup(
@@ -128,7 +121,7 @@ async def cb_data(bot, update):
     elif update.data == "close":
         await update.message.delete()
     else:
-        message = await update.message.edit_text("`🌐 Translating...`")
+        message = await update.message.edit_text("`▷ Translating...`")
         text = update.message.reply_to_message.text
         language = update.data
         translator = Translator()
@@ -148,13 +141,13 @@ async def cb_data(bot, update):
                     translate_file.name = language + ".txt"
                     await update.reply_document(
                         document=translate_file,
-                        caption="**Made With ❤ By @BX_Botz**",
+                        caption="**Made With ❤ By @itzz_james**",
                         reply_markup=TRANSLATE_BUTTON
                     )
                 await message.delete()
         except Exception as error:
             print(error)
-            await message.edit_text("Something wrong. Contact My Support Group\n\n☎️ @BXSupport")
+            await message.edit_text("Something wrong. Contact Me\n\n☎️ @itzz_james")
 
 @Telegram.on_message(filters.command(["start"]))
 async def start(bot, update):
